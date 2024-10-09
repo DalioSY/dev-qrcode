@@ -23,6 +23,7 @@ export default function Home() {
   function handleGenerate(link: string) {
     if (!link) {
       alert('Digite o seu link');
+      return;
     }
 
     QRCodeLink.toDataURL(
@@ -80,11 +81,13 @@ export default function Home() {
             <Button variant='outline' onClick={createQrcode}>
               Gerar QR Code
             </Button>
-            <Button>
-              <a href={qrcodeLink} download='qrcode.png'>
-                Baixar QR Code
-              </a>
-            </Button>
+            {qrcodeLink && (
+              <Button>
+                <a href={qrcodeLink} download='qrcode.png'>
+                  Baixar QR Code
+                </a>
+              </Button>
+            )}
           </CardFooter>
         </Card>
       </div>
