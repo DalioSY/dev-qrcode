@@ -31,7 +31,7 @@ export default function Home() {
         width: 300,
         margin: 3,
       },
-      (err: Error | null, url: string) => {
+      (err: Error | null | undefined, url: string) => {
         if (err) {
           console.error('Erro ao gerar QR Code', err);
           return;
